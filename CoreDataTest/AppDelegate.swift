@@ -13,10 +13,63 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let entityName = NSStringFromClass(Person.classForCoder())
+    
+    func populateDatabase() {
+        
+        for counter in 0..<100 {
+        
+            let person = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext!) as! Person
+            
+            person.firstName = "First Name \(counter)"
+            person.lastName = "Last Name \(counter)"
+            person.age = NSNumber(longLong: 20)
+        }
+        
+        var savingError:NSError?
+        if managedObjectContext!.save(&savingError) {
+            
+            println("Managed to populate the database")
+        } else {
+            
+            if let error = savingError {
+                
+                println("Failed to populate the database. Error = \(error)")
+            }
+        }
+        
+        let newPerson = NSEntityDescription.insertNewObjectForEntityForName(entityName, inManagedObjectContext: managedObjectContext!) as! Person
+        newPerson.firstName = "Tudor"
+        newPerson.lastName = "Munteanu"
+        newPerson.age = NSNumber(int: 10)
+        if managedObjectContext!.save(&savingError) {
+            
+            println("Saved Tudor")
+        } else {
+            
+            if let error = savingError {
+                
+                println("Failed to save Tudor the database. Error = \(error)")
+            }
+        }
+    }
+    
+    func showPersons() {
+        
+        let fetchRequest = NSFetchRequest(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "age < %@", 21 as NSNumber)
+        var requestError: NSError?
+        let persons = managedObjectContext?.executeFetchRequest(fetchRequest, error: &requestError) as! [Person!]
+        for person in persons {
 
+            println(person.firstName)
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        populateDatabase()
+        showPersons()
         return true
     }
 
@@ -47,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.mowow..CoreDataTest" in the application's documents Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.mowow.CoreDataTest" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1] as! NSURL
     }()

@@ -14,6 +14,7 @@
 		ECA8FCFB1AFD47B00036F3A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA8FCFA1AFD47B00036F3A3 /* Images.xcassets */; };
 		ECA8FCFE1AFD47B00036F3A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA8FCFC1AFD47B00036F3A3 /* LaunchScreen.xib */; };
 		ECA8FD0A1AFD47B00036F3A3 /* CoreDataTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8FD091AFD47B00036F3A3 /* CoreDataTestTests.swift */; };
+		ECA8FD161AFD507E0036F3A3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8FD151AFD507E0036F3A3 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		ECA8FD031AFD47B00036F3A3 /* CoreDataTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA8FD081AFD47B00036F3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA8FD091AFD47B00036F3A3 /* CoreDataTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestTests.swift; sourceTree = "<group>"; };
+		ECA8FD151AFD507E0036F3A3 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +82,13 @@
 			isa = PBXGroup;
 			children = (
 				ECA8FCF01AFD47B00036F3A3 /* AppDelegate.swift */,
-				ECA8FCF51AFD47B00036F3A3 /* ViewController.swift */,
-				ECA8FCF71AFD47B00036F3A3 /* Main.storyboard */,
+				ECA8FCF21AFD47B00036F3A3 /* CoreDataTest.xcdatamodeld */,
 				ECA8FCFA1AFD47B00036F3A3 /* Images.xcassets */,
 				ECA8FCFC1AFD47B00036F3A3 /* LaunchScreen.xib */,
-				ECA8FCF21AFD47B00036F3A3 /* CoreDataTest.xcdatamodeld */,
+				ECA8FCF71AFD47B00036F3A3 /* Main.storyboard */,
+				ECA8FD151AFD507E0036F3A3 /* Person.swift */,
 				ECA8FCEE1AFD47B00036F3A3 /* Supporting Files */,
+				ECA8FCF51AFD47B00036F3A3 /* ViewController.swift */,
 			);
 			path = CoreDataTest;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				ECA8FCF61AFD47B00036F3A3 /* ViewController.swift in Sources */,
 				ECA8FCF41AFD47B00036F3A3 /* CoreDataTest.xcdatamodeld in Sources */,
+				ECA8FD161AFD507E0036F3A3 /* Person.swift in Sources */,
 				ECA8FCF11AFD47B00036F3A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
